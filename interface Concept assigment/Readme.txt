@@ -1,1 +1,1 @@
-design and construct several interface concepts(icon, menu, main_screen)
+design and construct several interface concepts(icon, menu, main_screen, some pages and bbuttons)
