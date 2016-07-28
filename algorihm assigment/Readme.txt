@@ -1,0 +1,1 @@
+write simplyfied algorith on pyhon to estimate text level
