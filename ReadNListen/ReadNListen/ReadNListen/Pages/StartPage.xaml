@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:ReadNListen.App;assembly=ReadNListen.App"
+             x:Class="ReadNListen.Pages.StartPage"
+             Padding="0, 20, 0, 0">
+  
+  <StackLayout>
+    <Button x:Name="libraryBatton"
+            Text="In Library"
+            Clicked="OnLibraryButtonClicked"/>
+
+  </StackLayout>
+</ContentPage>
