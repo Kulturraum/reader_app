@@ -40,7 +40,9 @@
     </Compile>
     <Compile Include="Book.cs" />
     <Compile Include="Books.cs" />
+    <Compile Include="Elements\CustomWebView.cs" />
     <Compile Include="Interfaces\IFilesManager.cs" />
+    <Compile Include="Pages\WebViewPage.cs" />
     <Compile Include="Pages\LibraryPage.xaml.cs">
       <DependentUpon>LibraryPage.xaml</DependentUpon>
     </Compile>
