@@ -10,19 +10,15 @@ namespace ReadNListen.Droid.Implementations
 {
     class FilesManager : IFilesManager
     {
-        public bool Exists(string filename)
+        public void Create()
         {
-            string filepath = GetFilePath(filename);
-            return File.Exists(filepath);
+            if(!Directory.Exists(GetDocsPath()))
+                Directory.CreateDirectory(GetDocsPath());
         }
 
-        public IEnumerable<string> GetFiles()
+        public string[] Files()
         {
             return Directory.GetFiles(GetDocsPath());
-        }
-        public void Delete(string filename)
-        {
-            File.Delete(GetFilePath(filename));
         }
 
         // Private methods.
@@ -32,7 +28,8 @@ namespace ReadNListen.Droid.Implementations
         }
         string GetDocsPath()
         {
-            return Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            return Path.Combine(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath, "ReadNListen");
         }
+
     }
 }

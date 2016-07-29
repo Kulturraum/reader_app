@@ -11,11 +11,11 @@ namespace ReadNListen.Pages
 {
     public partial class LibraryPage : ContentPage
     {
-        public LibraryPage()
+        public LibraryPage(List<Book> books)
         {
             InitializeComponent();
-            foreach (string path in DependencyService.Get<IFilesManager>().GetFiles())
-                booksLayout.Children.Add(new Label { Text = path });
+            foreach (Book book in books)
+                booksLayout.Children.Add(book.Label);
         }
     }
 }

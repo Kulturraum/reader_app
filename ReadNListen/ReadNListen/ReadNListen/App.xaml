@@ -9,6 +9,7 @@
       </Style>
 
       <Style TargetType="Label">
+        <Setter Property="LineBreakMode" Value="NoWrap"/>
         <Setter Property="FontSize" Value="Large" />
         <Setter Property="TextColor" Value="Teal" />
       </Style>
