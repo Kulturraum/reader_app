@@ -4,10 +4,9 @@
              x:Class="ReadNListen.Pages.StartPage"
              Padding="0, 20, 0, 0">
   
-  <StackLayout>
+  <StackLayout x:Name="StartPageLayout">
     <Button x:Name="libraryBatton"
             Text="In Library"
             Clicked="OnLibraryButtonClicked"/>
-
   </StackLayout>
 </ContentPage>

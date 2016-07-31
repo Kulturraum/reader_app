@@ -28,7 +28,10 @@ namespace ReadNListen.Droid
             {
                 var customWebView = Element as CustomWebView;
                 Control.Settings.AllowUniversalAccessFromFileURLs = true;
-                Control.LoadUrl("file:///android_asset/pdfjs/web/viewer.html?file=" + WebUtility.UrlEncode(customWebView.Uri));
+                Control.LoadUrl("file:///android_asset/pdfjs/web/viewer.html?file=" + customWebView.Uri);
+
+                //Doesn't open books with whitespaces
+                //Control.LoadUrl("file:///android_asset/pdfjs/web/viewer.html?file=" + WebUtility.UrlEncode(customWebView.Uri));
             }
         }
     }

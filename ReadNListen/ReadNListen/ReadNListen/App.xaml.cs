@@ -11,20 +11,18 @@ namespace ReadNListen
 {
     public partial class App : Application
     {
-        StartPage startPage = new StartPage();
-        IFilesManager filesManager = DependencyService.Get<IFilesManager>();
-        Books books;
+        StartPage startPage;
+        
         public App()
         {
             InitializeComponent();
-            filesManager.Create();
-            books = new Books(filesManager.Files());
-            MainPage = startPage;
-            startPage.LibraryButtonClicked += delegate { MainPage = new LibraryPage(books.ToList()); };
+            startPage = new StartPage();
+            OnStartPage();
         }
 
         public void OnStartPage()
         {
+            startPage.Update();
             MainPage = startPage;
         }
 

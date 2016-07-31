@@ -8,7 +8,9 @@ namespace ReadNListen.Interfaces
 {
     public interface IFilesManager
     {
-        void Create();
-        string[] Files();
+        bool Exists(string filename);
+        IEnumerable<string> Files();
+        string GetFilePath(string filename);
+        string GetDocsPath();
     }
 }

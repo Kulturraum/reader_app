@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReadNListen.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,39 @@ namespace ReadNListen.Pages
 {
     public partial class StartPage : ContentPage
     {
+        Button lastBookButton;
         public StartPage()
         {
             InitializeComponent();
         }
 
-        public event EventHandler LibraryButtonClicked;
+        public void Update()
+        {
+            if (App.Current.Properties.ContainsKey("lastBook"))
+            {
+                string filename = (string)App.Current.Properties["lastBook"];
+
+                if (lastBookButton == null && Global.filesManager.Exists(filename))
+                {
+                    lastBookButton = new Button { Text = "Last Book" };
+
+                    lastBookButton.Clicked += delegate
+                    {
+                        App.Current.MainPage = new WebViewPage(Global.filesManager.GetFilePath(filename));
+                    };
+                    StartPageLayout.Children.Add(lastBookButton);
+                }
+                else if(lastBookButton != null && !Global.filesManager.Exists(filename))
+                {
+                    StartPageLayout.Children.Remove(lastBookButton);
+                    lastBookButton = null;
+                }
+            }
+        }
 
         public void OnLibraryButtonClicked(object sender, EventArgs args)
         {
-            LibraryButtonClicked.Invoke(null, EventArgs.Empty);
+            App.Current.MainPage = new LibraryPage();
         }
     }
 }
